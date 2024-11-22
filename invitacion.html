@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación aniversario Lamelas y Chaumont</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-gray-800 font-sans w-full py-4 overflow-x-hidden">
+    <header class="bg-black w-full py-4">
+      <div class="container mx-auto px-4 flex items-center justify-center md:justify-start gap-6">
+        <!-- Logo -->
+        <img src="assets/logo2.png" alt="Logo de la empresa" class="w-52 h-auto"> <!-- Más grande y visualmente destacado -->
+  
+        <!-- Texto del aniversario -->
+        <div>
+          <h1 class="text-white text-3xl md:text-4xl font-extrabold tracking-tight leading-tight">
+            5to Aniversario
+          </h1>
+          <h2 class="text-green-700 text-4xl md:text-5xl font-serif italic leading-tight">
+            Lamelas y Chaumont
+          </h2>
+        </div>
+      </div>
+    </header>
+    <div class="container mx-auto max-w-screen-lg px-4 py-8">
+      <main>
+        <section class="text-center py-8 px-4 rounded-lg shadow-lg">
+          <!-- Título -->
+          <h2 class="text-white text-4xl font-bold mb-4 tracking-wide">
+              ¡Hola!, <span id="guestName" class="text-green-400 text-4xl md:text-5xl font-serif italic leading-tight"></span>
+          </h2>
+          <!-- Descripción de la cantidad de personas -->
+          <p class="text-white text-lg mb-4 font-medium">
+              Invitación para: <span id="guestCount" class="text-green-400 font-semibold"></span>
+          </p>
+      </section>
+      </main>
+  </div>
+    <!-- Contenedor principal con un tamaño limitado -->
+    <div class="container mx-auto max-w-screen-lg px-4 py-8">
+        <main>
+          <section class="md:flex md:items-start md:gap-8">
+            <!-- Sección del video -->
+            <div id="video" class="md:w-1/2 flex justify-center">
+              <h2 class="text-2xl font-semibold mb-4"></h2>
+              <div class="w-full md:w-3/4 lg:w-2/3">
+                <iframe class="w-full h-[500px] md:h-[600px] border border-black rounded-md" src="assets/myp.mp4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+              </div>
+            </div>
+      
+            <!-- Sección de la información del evento e imagen -->
+            <div class="md:w-1/2 flex flex-col gap-4">
+              <!-- Información del Evento -->
+              <div id="event-info" class="bg-white bg-opacity-75 text-black rounded-lg shadow-md p-9">
+                <h2 class="text-2xl font-semibold mb-4">Información del Evento</h2>
+                <p class="mb-2">Fecha: <span id="event-date" class="font-medium"></span></p>
+                <p class="mb-2">Hora: <span id="event-time" class="font-medium"></span></p>
+                <p class="mb-2 font-bold">Salon Las cañas. Diagonal Raúl Leccesi Colectora Norte km 5, Tafi Viejo <span class="font-medium"></span></p>
+                <p class="mb-2 flex items-center">
+                  <a href="https://maps.app.goo.gl/87Zfpgq74zJSfTfp7" id="event-link" class="inline-flex items-center bg-green-700 border border-white text-white font-semibold py-2 px-4 rounded-lg hover:bg-black hover:text-white transition-colors">
+                    <i class="fa-solid fa-map-location"></i>
+                    Cómo llegar
+                  </a>
+                </p>
+              </div>
+      
+              <!-- Imagen del Flyer -->
+              <div class="flex flex-col gap-4 lg:gap-0">
+                <img src="assets/Black.png" alt="Flyer del evento" class="w-full lg:w-10/3 h-[340px] rounded-lg shadow-md object-cover">
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+
+      <section id="countdown" class="bg-white bg-opacity-75 rounded-lg shadow-md p-6 mb-8 text-center">
+        <h2 class="text-3xl font-semibold mb-6">Cuenta Regresiva</h2>
+        <div id="countdown-timer" class="flex justify-center gap-8 text-center">
+          <!-- Días -->
+          <div class="countdown-item flex flex-col items-center">
+            <div class="text-6xl font-extrabold text-green-700" id="days">0</div>
+            <div class="text-lg font-medium uppercase mt-2">Días</div>
+          </div>
+          <!-- Horas -->
+          <div class="countdown-item flex flex-col items-center">
+            <div class="text-6xl font-extrabold text-green-700" id="hours">0</div>
+            <div class="text-lg font-medium uppercase mt-2">Horas</div>
+          </div>
+          <!-- Minutos -->
+          <div class="countdown-item flex flex-col items-center">
+            <div class="text-6xl font-extrabold text-green-700" id="minutes">0</div>
+            <div class="text-lg font-medium uppercase mt-2">Minutos</div>
+          </div>
+          <!-- Segundos -->
+          <div class="countdown-item flex flex-col items-center">
+            <div class="text-6xl font-extrabold text-green-700" id="seconds">0</div>
+            <div class="text-lg font-medium uppercase mt-2">Segundos</div>
+          </div>
+        </div>
+      </section>
+      
+    <!-- Sección del Carrusel -->
+    <div class="relative overflow-hidden w-full max-w-4xl mx-auto">
+      <div id="carousel-container" class="flex transition-transform duration-500">
+          <img src="assets/imagen1.jpeg" alt="Imagen 1" class="w-full">
+          <img src="assets/imagen2.jpeg" alt="Imagen 2" class="w-full">
+          <img src="assets/imagen3.jpeg" alt="Imagen 3" class="w-full">
+          <img src="assets/imagen4.jpeg" alt="Imagen 4" class="w-full">
+          <img src="assets/imagen5.jpeg" alt="Imagen 5" class="w-full">
+          <img src="assets/imagen6.jpeg" alt="Imagen 6" class="w-full">
+          <img src="assets/imagen7.jpeg" alt="Imagen 7" class="w-full">
+          <img src="assets/imagen8.jpeg" alt="Imagen 8" class="w-full">
+          <img src="assets/imagen9.jpeg" alt="Imagen 9" class="w-full">
+          <img src="assets/imagen10.jpeg" alt="Imagen 10" class="w-full">
+      </div>
+      <!-- Botones de Navegación -->
+      <button id="prev-btn" class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-3 py-2 rounded-full">
+          &#8249;
+      </button>
+      <button id="next-btn" class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-3 py-2 rounded-full">
+          &#8250;
+      </button>
+  </div>
+    
+
+<section class="bg-white bg-opacity-90 rounded-lg shadow-lg p-6 mt-16 mb-8 text-center hover:shadow-xl transition-all duration-300 max-w-4xl mx-auto">
+  <h3 class="text-2xl font-semibold mb-6 text-green-800">¡Tu presencia es importante!</h3>
+  <p class="mb-6 text-gray-700">Por favor, confirma tu asistencia así podemos prepararnos para recibirte.</p>
+  <button id="confirmButton" class="bg-green-700 text-white px-8 py-3 rounded-lg hover:bg-green-800 transition duration-300 flex items-center justify-center mx-auto">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mr-2" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.129.332.202.043.072.043.419-.101.824z"/>
+    </svg>
+    Confirmar por WhatsApp
+</button>
+</section>
+
+<!-- Sección de calendario -->
+<section class="bg-white bg-opacity-90 rounded-lg shadow-lg p-8 mb-8 text-center  hover:shadow-xl transition-all duration-300 max-w-4xl mx-auto">
+  <h3 class="text-2xl font-semibold mb-6 text-green-800">Agendá la fecha</h3>
+  <p class="mb-6 text-gray-700">No te olvides de este día tan especial. Agrégalo a tu calendario.</p>
+  <button id="calendarButton" class="bg-green-700 text-white px-8 py-3 rounded-lg hover:bg-green-800 transition duration-300 flex items-center justify-center mx-auto">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+      </svg>
+      Agregar a Google Calendar
+  </button>
+</section>
+
+<footer class="bg-green-700 text-center text-white py-6">
+  <p class="text-lg">¡Los esperamos para compartir momentos inolvidables!</p>
+  
+  <div class="mt-4">
+      <p>Síguenos en Instagram</p>
+      <a href="https://www.instagram.com/inmobiliarialamelasychaumont?igsh=ZXpnaXZmenk1YnYw" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: none;">
+          <!-- Ícono de Instagram usando svg inline -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+          </svg>
+          @inmobiliarialamelasychaumont
+      </a>
+  </div>
+  
+  <p class="mt-2">¡Etiquétanos en las fotos del día de la fiesta!</p>
+  
+  <p class="mt-4 text-sm">&copy; 2024 Inmobiliaria Lamelas y Chaumont. Todos los derechos reservados.</p>
+</footer>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+          const urlParams = new URLSearchParams(window.location.search);
+          const name = urlParams.get('name');
+          const guests = urlParams.get('guests');
+
+          document.getElementById('guestName').textContent = name;
+          document.getElementById('guestCount').textContent = guests;
+      });
+  </script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="script.js"></script>
+</body>
